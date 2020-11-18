@@ -22,11 +22,6 @@ float vertices[] = {
         0.5f,   -0.5f,  0.0f, // right
         0.0f,   0.5f,   0.0f // top
 };
-float delta_vertices[] = {
-        0.001f, 0.001f, 0.001f,
-        0.001f, 0.001f, 0.001f,
-        0.001f, 0.001f, 0.001f
-};
 
 const GLchar *vertexShaderSource = "#version 330 core\n"
                                    "layout (location = 0) in vec3 position;\n"
@@ -161,6 +156,7 @@ int main() {
         glfwSwapBuffers(window);
         glfwPollEvents();
 
+        // redraw the triangle.
         glad_glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_DYNAMIC_DRAW);
     }
 
@@ -206,6 +202,7 @@ void mouse_button_callback(GLFWwindow *window, int button, int action, int mods)
         }
     }
 
+    // respond when release mouse button.
     if (action == GLFW_RELEASE) {
         switch (button) {
 
